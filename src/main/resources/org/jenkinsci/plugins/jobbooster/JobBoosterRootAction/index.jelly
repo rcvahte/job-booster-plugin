@@ -1,0 +1,44 @@
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:f="/lib/form">
+<j:set var="rootURL" value="${hudson.getRootURL()}" />
+
+<l:layout>
+    
+    <l:main-panel>
+        
+        <h1><img src="/plugin/top-of-queue-plugin/images/speed_up_32px.png" />&#160;Job Booster</h1>
+        
+        <hr />
+
+        <h2>Boosted Jobs (${it.numberOfPrioritizedJobs})</h2>
+        <ul>
+        <j:forEach var="job" items="${it.prioJobs}">
+            <li>
+            <a href="${rootURL}/job/${job}">${job}</a>
+            </li>
+        </j:forEach>
+        </ul>
+
+        <br />
+        <br />
+
+        <h2>Regular Jobs (${it.numberOfJobsInQueue})</h2>
+        <ul>
+        <j:forEach var="job" items="${it.jobs}">
+            <li>
+            <a href="${rootURL}/job/${job}">${job}</a>
+            &#160;&#160;&#160;
+            <a href="${rootURL}/job/${job}/topofqueue">
+                <img src="/plugin/top-of-queue-plugin/images/speed_up_16px.png"
+                 onmouseover="this.src='/plugin/top-of-queue-plugin/images/speed_up_16px_light.png'"
+                 onmouseout="this.src='/plugin/top-of-queue-plugin/images/speed_up_16px.png'"
+                 alt="Boost build"
+                 title="Boost build"
+                />
+            </a>
+            </li>
+        </j:forEach>
+        </ul>
+
+    </l:main-panel>
+  </l:layout>
+</j:jelly>

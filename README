@@ -1,0 +1,3 @@
+Job Booster plugin for Jenkins
+
+- Allows users to boost priority of dynamically selected jobs, by putting them at the top of queue.
